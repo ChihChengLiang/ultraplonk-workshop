@@ -83,7 +83,9 @@ mod tests {
 
     #[test]
     fn test_successful_case() {
-        let circuit = MyCircuit::<Fp> { a: Value::known(Fp::one()) };
+        let circuit = MyCircuit::<Fp> {
+            a: Value::known(Fp::one()),
+        };
         let k = 3;
         let prover = MockProver::<Fp>::run(k, &circuit, vec![]).unwrap();
         assert_eq!(prover.verify(), Ok(()));
